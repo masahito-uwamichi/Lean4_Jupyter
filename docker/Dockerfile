@@ -20,6 +20,13 @@ RUN curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init
 # lean4とlakeが利用可能であることを確認
 RUN lean --version && lake --version
 
+# lean4-jupyter が必要とする Lean4 REPL のビルド
+RUN git clone https://github.com/leanprover-community/repl.git /tmp/repl \
+    && cd /tmp/repl \
+    && lake build \
+    && cp .lake/build/bin/repl /usr/local/bin/repl \
+    && rm -rf /tmp/repl
+
 # Python パッケージのインストール
 RUN pip3 install --no-cache-dir --break-system-packages \
     jupyterlab \
