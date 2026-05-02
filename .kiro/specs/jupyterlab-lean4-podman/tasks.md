@@ -44,7 +44,12 @@
   - 不正な入力に対してtry/exceptでフォールバックテキスト表示を実装する
   - _Requirements: 4.1, 4.2, 4.4_
 
-- [ ] 4. サンプルnotebookの作成
+- [x] 4. サンプルnotebookの作成
+
+
+
+
+
   - `notebooks/lean4_intro.ipynb` を作成する
   - `#eval 1 + 1` など基本的なLean4コード実行セルを追加する
   - `#check Nat.add_zero` など型チェックのセルを追加する
