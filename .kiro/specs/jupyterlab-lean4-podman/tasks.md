@@ -12,16 +12,23 @@
   - lean4-jupyterカーネルを `python -m lean4_jupyter.install` で登録する手順を追加する
   - _Requirements: 2.4, 2.1_
 
-- [ ] 2. podman-compose.ymlの作成
+- [x] 2. podman-compose.ymlの作成
 
 
-  - [ ] 2.1 compose設定ファイルを作成する
+
+
+
+  - [x] 2.1 compose設定ファイルを作成する
+
+
     - `./docker/Dockerfile` をビルドするjupyterlabサービスを定義する
     - ポート8888をホストに公開する設定を追加する
     - `./notebooks` を `/home/jovyan/work` にバインドマウントする設定を追加する
     - `JUPYTER_TOKEN` 環境変数とJupyterLab起動コマンドを設定する
     - _Requirements: 1.1, 1.2, 5.1_
-  - [ ] 2.2 .envファイルのサンプルを作成する
+  - [x] 2.2 .envファイルのサンプルを作成する
+
+
     - `JUPYTER_TOKEN` のデフォルト値を含む `.env.example` を作成する
     - _Requirements: 1.2_
 
