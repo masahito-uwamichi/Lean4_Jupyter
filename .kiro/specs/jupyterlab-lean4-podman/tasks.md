@@ -32,7 +32,12 @@
     - `JUPYTER_TOKEN` のデフォルト値を含む `.env.example` を作成する
     - _Requirements: 1.2_
 
-- [ ] 3. 可視化ヘルパーモジュールの実装
+- [x] 3. 可視化ヘルパーモジュールの実装
+
+
+
+
+
   - `notebooks/lean4_viz.py` を作成する
   - `show_latex(latex_str)` 関数を実装する（`IPython.display.Math` を使用）
   - `show_expr(lean_expr_str)` 関数を実装する（テキストをLaTeX風にフォーマットして表示）
