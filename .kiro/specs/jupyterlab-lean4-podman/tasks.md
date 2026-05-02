@@ -1,6 +1,8 @@
 # Implementation Plan
 
-- [-] 1. Dockerfileの作成
+- [x] 1. Dockerfileの作成
+
+
 
 
 
@@ -11,6 +13,8 @@
   - _Requirements: 2.4, 2.1_
 
 - [ ] 2. podman-compose.ymlの作成
+
+
   - [ ] 2.1 compose設定ファイルを作成する
     - `./docker/Dockerfile` をビルドするjupyterlabサービスを定義する
     - ポート8888をホストに公開する設定を追加する
