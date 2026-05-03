@@ -42,3 +42,22 @@ htmlcov/
 # IPython
 profile_default/
 ipython_config.py
+
+# コンテナビルドキャッシュ・成果物
+.podman/
+.docker/
+*.tar
+*.tar.gz
+
+# OS / エディタ
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# ログ
+*.log
+logs/
