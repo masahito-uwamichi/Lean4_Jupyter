@@ -1,8 +1,6 @@
 services:
   jupyterlab:
-    build:
-      context: ./docker
-      dockerfile: Dockerfile
+    build: ./docker
     ports:
       - "8888:8888"
     volumes:

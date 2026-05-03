@@ -21,15 +21,11 @@ RUN curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init
 RUN lean --version && lake --version
 
 # lean4-jupyter が必要とする Lean4 REPL のビルド
-# repl はプロジェクトディレクトリごと残す必要がある（lake環境が必要なため）
-RUN git clone https://github.com/leanprover-community/repl.git /opt/repl \
-    && cd /opt/repl \
-    && lake build
-
-# repl をラッパースクリプト経由でPATHに追加
-# lake env repl は lakefile.lean があるディレクトリで実行する必要がある
-RUN printf '#!/bin/sh\ncd /opt/repl && exec .lake/build/bin/repl "$@"\n' > /usr/local/bin/repl \
-    && chmod +x /usr/local/bin/repl
+RUN git clone https://github.com/leanprover-community/repl.git /tmp/repl \
+    && cd /tmp/repl \
+    && lake build \
+    && cp .lake/build/bin/repl /usr/local/bin/repl \
+    && rm -rf /tmp/repl
 
 # Python パッケージのインストール
 RUN pip3 install --no-cache-dir --break-system-packages \
@@ -41,10 +37,6 @@ RUN pip3 install --no-cache-dir --break-system-packages \
 
 # lean4-jupyterカーネルの登録
 RUN python3 -m lean4_jupyter.install
-
-# lean4_jupyter が lake env repl を /opt/repl で実行するようにパッチ
-RUN sed -i 's|pexpect.spawn("lake env repl"|pexpect.spawn("lake env repl", cwd="/opt/repl"|' \
-    /usr/local/lib/python3.12/dist-packages/lean4_jupyter/repl.py
 
 # 作業ディレクトリの作成
 RUN mkdir -p /home/jovyan/work
